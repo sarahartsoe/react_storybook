@@ -4,10 +4,12 @@ import { Counter } from '../../features/counter/Counter';
 import { NbosHighcharts } from '../../molecules/NbosHighcharts';
 import './style.css';
 import { Link } from 'react-router-dom';
+import { NbosHeader } from '../../atoms/NbosHeader';
 
 export function HomePage() {
   return (
     <div className="App">
+      <NbosHeader />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />

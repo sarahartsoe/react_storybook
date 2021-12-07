@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const NbosCard = ({}) => {
+export const NbosCard = () => {
   return;
 };
