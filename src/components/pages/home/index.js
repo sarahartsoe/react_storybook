@@ -5,11 +5,13 @@ import { NbosHighcharts } from '../../molecules/NbosHighcharts';
 import './style.css';
 import { Link } from 'react-router-dom';
 import { NbosHeader } from '../../atoms/NbosHeader';
+import { NbosSideNav } from '../../atoms/NbosSideNav';
 
 export function HomePage() {
   return (
     <div className="App">
       <NbosHeader />
+      <NbosSideNav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
