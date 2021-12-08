@@ -6,12 +6,14 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import { NbosHeader } from '../../atoms/NbosHeader';
 import { NbosSideNav } from '../../atoms/NbosSideNav';
+import { NbosClientInfo } from '../../molecules/NbosClientInfo';
 
 export function HomePage() {
   return (
     <div className="App">
       <NbosHeader />
       <NbosSideNav />
+      <NbosClientInfo />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
