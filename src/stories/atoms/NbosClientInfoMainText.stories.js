@@ -17,4 +17,6 @@ const Template = args => <NbosClientInfoMainText {...args} />;
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {};
+Primary.args = {
+  mainTextLabel: 'Patrick Barnes',
+};
