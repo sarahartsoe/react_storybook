@@ -7,7 +7,7 @@ import { NbosClientInfoMainText } from '../atoms/NbosClientInfoMainText';
 
 export const NbosClientInfo = () => (
   <NbosSurface>
-    <div className="tw-grid tw-grid-rows-5 tw-text-center tw-justify-items-center p-8">
+    <div className="tw-grid tw-grid-rows-5 tw-text-center tw-justify-items-center">
       <div className="tw-text-center">
         <NbosClientInfoAvatar />
       </div>
