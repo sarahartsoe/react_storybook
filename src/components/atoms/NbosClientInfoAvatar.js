@@ -6,6 +6,7 @@ export const NbosClientInfoAvatar = () => {
   return (
     <Avatar
       shape="circle"
+      size={64}
       style={{
         backgroundColor: '#87d068',
       }}
