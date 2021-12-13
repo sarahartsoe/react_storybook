@@ -6,6 +6,7 @@ import { NbosClientInfo } from '../molecules/NbosClientInfo.js';
 import { NbosClient } from '../molecules/NbosClient.js';
 import { NbosSummary1 } from '../molecules/NbosSummary1.js';
 import { NbosSummary2 } from '../molecules/NbosSummary2.js';
+import { NbosMetricsCard } from '../organisms/NbosMetricsCard';
 
 const { Header, Content, Sider } = Layout;
 
@@ -39,6 +40,9 @@ export const NbosDashboard = () => {
                 <NbosClient />
                 <NbosSummary1 />
                 <NbosSummary2 />
+              </div>
+              <div className="tw-col-span-3">
+                <NbosMetricsCard />
               </div>
             </div>
           </Content>
