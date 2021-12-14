@@ -6,8 +6,8 @@ import { NbosClientInfoMainText } from '../atoms/NbosClientInfoMainText';
 
 export const NbosClientInfo = () => (
   <NbosSurface>
-    <div className="tw-grid tw-grid-rows-5 tw-justify-items-center tw-content-center tw-content-around tw-pt-12">
-      <div className="tw-text-center">
+    <div className="tw-grid tw-grid-rows-5 tw-justify-items-center tw-content-center tw-content-around">
+      <div className="tw-text-center tw-pt-10">
         <NbosClientInfoAvatar />
       </div>
       <div className="tw-justify-items-center tw-pt-8">
@@ -22,7 +22,7 @@ export const NbosClientInfo = () => (
         <NbosSummarySubtext subTextLabel="Role" />
         <NbosClientInfoMainText mainTextLabel="Commercial RM II" />
       </div>
-      <div className="tw-text-center tw-pt-8">
+      <div className="tw-text-center tw-pt-8 tw-pb-4">
         <NbosSummarySubtext subTextLabel="Team Lead" />
         <NbosClientInfoMainText mainTextLabel="John Smith" />
       </div>

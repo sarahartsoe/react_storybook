@@ -11,7 +11,7 @@ export const NbosSummary1 = () => (
         <NbosSummaryNumeric summaryNumeric="$519.09k" />
         <NbosSummarySubtextLeft subTextLabel="TTM Avg Loan Balance" />
       </div>
-      <div className="tw-text-left tw-grid-rows-2 tw-border-l-2 tw-divide-x tw-divide-gray-400">
+      <div className="tw-text-left tw-grid-rows-2 tw-border-l-2">
         <div className="tw-grid tw-grid-rows-2">
           <NbosSummaryNumeric summaryNumeric="$549.13k" />
           <NbosSummarySubtextLeft subTextLabel="TTM Avg Credit Commitments" />

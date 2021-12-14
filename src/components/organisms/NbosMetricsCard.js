@@ -1,6 +1,5 @@
 import React from 'react';
 import { NbosMetricsHighchart } from '../molecules/NbosMetricsHighchart';
-import { NbosMetricsFooter } from '../molecules/NbosMetricsFooter';
 import { NbosMetricsHeader } from '../molecules/NbosMetricsHeader';
 import { NbosSurface } from '../atoms/NbosSurface';
 
@@ -12,9 +11,6 @@ export const NbosMetricsCard = () => (
       </div>
       <div className="tw-row-span-3 tw-justify-center">
         <NbosMetricsHighchart />
-      </div>
-      <div className="tw-pt-2 tw-pl-4">
-        <NbosMetricsFooter />
       </div>
     </div>
   </NbosSurface>

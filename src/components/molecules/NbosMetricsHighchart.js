@@ -1,11 +1,21 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import './metrics.css';
 
 export const NbosMetricsHighchart = () => {
   const options = {
     chart: {
       type: 'bar',
+      spacingBottom: 15,
+      spacingTop: 10,
+      spacingLeft: 10,
+      spacingRight: 10,
+      marginLeft: 300,
+      marginRight: 300,
+      width: null,
+      height: null,
+      //   styledMode: true
     },
     xAxis: {
       categories: [
@@ -15,7 +25,7 @@ export const NbosMetricsHighchart = () => {
         'Strategies Updates',
       ],
       title: {
-        text: null,
+        text: '',
       },
     },
     yAxis: {
@@ -32,23 +42,14 @@ export const NbosMetricsHighchart = () => {
       valueSuffix: ' millions',
     },
     plotOptions: {
+      series: {
+        borderWidth: 0,
+      },
       bar: {
         dataLabels: {
           enabled: true,
         },
       },
-    },
-    legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'top',
-      x: -40,
-      y: 80,
-      floating: true,
-      borderWidth: 1,
-      backgroundColor:
-        Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-      shadow: true,
     },
     credits: {
       enabled: false,
