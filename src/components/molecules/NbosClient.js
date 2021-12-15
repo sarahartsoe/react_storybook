@@ -16,11 +16,11 @@ export const NbosClient = () => (
         <div className="tw-grid tw-grid-rows-2">
           <NbosSummaryMedNumber medNumber="4" />
           <NbosSummarySubtextLeft subTextLabel="Credit Only Relationships" />
+          <NbosSummaryMedNumber medNumber="6" />
+          <NbosSummarySubtextLeft subTextLabel="Relationships with <$25 K TTM Revenue" />
         </div>
-        <NbosSummaryMedNumber medNumber="6" />
-        <NbosSummarySubtextLeft subTextLabel="Relationships with <$25 K TTM Revenue" />
       </div>
-      <div className="tw-text-left tw-grid-rows-4 tw-border-l-2">
+      <div className="tw-text-left tw-grid-rows-2 tw-border-l-2">
         <NbosSummaryMedNumber medNumber="14" />
         <NbosSummarySubtextLeft subTextLabel="Top Prospects" />
         <NbosSummaryMedNumber medNumber="0" />

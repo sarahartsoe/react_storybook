@@ -3,10 +3,10 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import './metrics.css';
 
-export const NbosMetricsHighchart = () => {
+export const NbosHighchartPipeline = () => {
   const options = {
     chart: {
-      type: 'bar',
+      type: 'column',
       spacingBottom: 15,
       spacingTop: 10,
       spacingLeft: 10,
@@ -17,15 +17,10 @@ export const NbosMetricsHighchart = () => {
       height: null,
     },
     title: {
-      text: null,
+      text: 'Current vs Same time last year',
     },
     xAxis: {
-      categories: [
-        'Avg Overall RM Satisfaction',
-        'Client Calls',
-        'Prospect Calls',
-        'Strategies Updated',
-      ],
+      categories: ['Stage 1', 'Stage 2', 'Stage 3', 'Stage 4', 'Booked YTD'],
     },
     yAxis: {
       title: {
@@ -37,12 +32,12 @@ export const NbosMetricsHighchart = () => {
     },
     series: [
       {
-        name: 'RM',
-        data: [4.2, 54, 2, 6],
+        name: '2021',
+        data: [1300, 1300, 500, 700, 1200],
       },
       {
-        name: 'This Time Last Year',
-        data: [5, 84, 11, 4],
+        name: '2020',
+        data: [1600, 1100, 500, 1600, 1100],
       },
     ],
   };
