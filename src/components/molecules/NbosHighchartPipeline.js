@@ -8,7 +8,7 @@ export const NbosHighchartPipeline = () => {
     chart: {
       type: 'column',
       spacingBottom: 15,
-      spacingTop: 10,
+      spacingTop: 1,
       spacingLeft: 10,
       spacingRight: 10,
       marginLeft: 300,

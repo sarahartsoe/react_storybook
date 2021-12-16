@@ -39,6 +39,7 @@ const options = [
     value: 'other',
     selectedBackgroundColor: '#0166CC',
     selectedFontColor: '#ffffff',
+    border: '0166CC',
   },
 ];
 
@@ -50,7 +51,7 @@ const initialSelectedIndex = options.findIndex(({ value }) => value === 'bar');
 
 export const NbosPipelineToggleGroup = () => {
   return (
-    <div className="toggle">
+    <div className="toggle tw-ml-7 tw-mr-7">
       <SwitchSelector
         onChange={onChange}
         options={options}
@@ -59,7 +60,7 @@ export const NbosPipelineToggleGroup = () => {
         fontColor={'#0166CC'}
         wrapperBorderRadius={12}
         optionBorderRadius={7}
-        border="1px solid rgba(1,102,204,100)"
+        border="2px solid rgba(1,102,204,100)"
       />
     </div>
   );

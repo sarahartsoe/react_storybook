@@ -4,7 +4,7 @@ import { NbosClientInfoAvatar } from '../atoms/NbosClientInfoAvatar';
 import { NbosSummarySubtext } from '../atoms/NbosSummarySubtext';
 import { NbosClientInfoMainText } from '../atoms/NbosClientInfoMainText';
 
-export const NbosClientInfo = () => (
+export const NbosClientInfo = ({ userInfo }) => (
   <NbosSurface>
     <div className="tw-grid tw-grid-rows-5 tw-justify-items-center tw-content-center tw-content-around">
       <div className="tw-text-center tw-pt-9">
@@ -12,7 +12,7 @@ export const NbosClientInfo = () => (
       </div>
       <div className="tw-justify-items-center tw-pt-8">
         <NbosSummarySubtext subTextLabel="Name" />
-        <NbosClientInfoMainText mainTextLabel="Patrick Barnes" />
+        <NbosClientInfoMainText mainTextLabel={userInfo.userName} />
       </div>
       <div className="tw-text-center tw-pt-8">
         <NbosSummarySubtext subTextLabel="Hire Date" />
