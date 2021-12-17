@@ -16,15 +16,15 @@ export const NbosClientInfo = ({ userInfo }) => (
       </div>
       <div className="tw-text-center tw-pt-8">
         <NbosSummarySubtext subTextLabel="Hire Date" />
-        <NbosClientInfoMainText mainTextLabel="10/10/2017" />
+        <NbosClientInfoMainText mainTextLabel={userInfo.hireDate} />
       </div>
       <div className="tw-text-center tw-pt-8">
         <NbosSummarySubtext subTextLabel="Role" />
-        <NbosClientInfoMainText mainTextLabel="Commercial RM II" />
+        <NbosClientInfoMainText mainTextLabel={userInfo.role} />
       </div>
       <div className="tw-text-center tw-pt-8 tw-pb-4">
         <NbosSummarySubtext subTextLabel="Team Lead" />
-        <NbosClientInfoMainText mainTextLabel="John Smith" />
+        <NbosClientInfoMainText mainTextLabel={userInfo.teamLead} />
       </div>
     </div>
   </NbosSurface>

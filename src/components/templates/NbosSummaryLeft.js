@@ -1,8 +1,8 @@
 import React from 'react';
 import { NbosClientInfo } from '../molecules/NbosClientInfo.js';
 
-export const NbosSummaryLeft = () => (
+export const NbosSummaryLeft = ({ userInfo }) => (
   <div className="tw-row-span-3">
-    <NbosClientInfo />
+    <NbosClientInfo userInfo={userInfo} />
   </div>
 );
