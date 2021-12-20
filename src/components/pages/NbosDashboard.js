@@ -12,6 +12,7 @@ import { fetchUserInfo } from '../../store/userSlice.js';
 import { fetchClientInfo } from '../../store/clientsSlice';
 import { fetchSummary1 } from '../../store/summary1Slice';
 import { fetchSummary2 } from '../../store/summary2Slice';
+import { fetchOutcomeMetrics } from '../../store/metricsSlice';
 
 const { Header, Content, Sider } = Layout;
 
@@ -20,6 +21,7 @@ export const NbosDashboard = () => {
   const clientInfo = useSelector(state => state.clientInfo);
   const summary1 = useSelector(state => state.summary1);
   const summary2 = useSelector(state => state.summary2);
+  const outcomeMetrics = useSelector(state => state.outcomeMetrics);
   const dispatch = useDispatch();
 
   useEffect(async () => {
@@ -27,6 +29,7 @@ export const NbosDashboard = () => {
     await dispatch(fetchClientInfo());
     await dispatch(fetchSummary1());
     await dispatch(fetchSummary2());
+    await dispatch(fetchOutcomeMetrics());
   });
 
   return (
@@ -40,7 +43,11 @@ export const NbosDashboard = () => {
           <NbosHeader />
         </Header>
         <Layout>
-          <Sider width={200} height={100} className="site-layout-background">
+          <Sider
+            width={200}
+            style={{ height: '100%', position: 'absolute' }}
+            className="site-layout-background tw-h-full"
+          >
             <NbosSideNav />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
@@ -67,7 +74,7 @@ export const NbosDashboard = () => {
                   </div>
                 </div>
                 <div className="tw-col-span-3">
-                  <NbosMetricsCard />
+                  <NbosMetricsCard outcomeMetrics={outcomeMetrics} />
                 </div>
                 <div className="tw-col-span-3">
                   <NbosPipelineGrid />

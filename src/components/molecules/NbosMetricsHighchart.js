@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import './metrics.css';
 
-export const NbosMetricsHighchart = () => {
+export const NbosMetricsHighchart = ({ outcomeMetrics }) => {
   const options = {
     chart: {
       type: 'bar',
@@ -38,11 +38,21 @@ export const NbosMetricsHighchart = () => {
     series: [
       {
         name: 'RM',
-        data: [4.2, 54, 2, 6],
+        data: [
+          parseFloat(outcomeMetrics.loanProdY1),
+          parseFloat(outcomeMetrics.DepGrowthY1),
+          parseFloat(outcomeMetrics.TmGrowthY1),
+          parseFloat(outcomeMetrics.newClientsY1),
+        ],
       },
       {
         name: 'This Time Last Year',
-        data: [5, 84, 11, 4],
+        data: [
+          parseFloat(outcomeMetrics.loanProdY2),
+          parseFloat(outcomeMetrics.DepGrowthY2),
+          parseFloat(outcomeMetrics.TmGrowthY2),
+          parseFloat(outcomeMetrics.newClientsY2),
+        ],
       },
     ],
   };

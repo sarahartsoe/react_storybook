@@ -4,12 +4,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 500%;
+  width: 100vw;
 }
 
 .sidenav {
-  height: 100%;
   width: 64px;
+  height: 100%;
   position: absolute;
   left: 0;
   background-color: #213341;
