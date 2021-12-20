@@ -9,15 +9,18 @@ import { NbosMetricsCard } from '../organisms/NbosMetricsCard';
 import { NbosPipelineGrid } from '../templates/NbosPipelineGrid.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUserInfo } from '../../store/userSlice.js';
+import { fetchClientInfo } from '../../store/clientsSlice';
 
 const { Header, Content, Sider } = Layout;
 
 export const NbosDashboard = () => {
   const userInfo = useSelector(state => state.userInfo);
+  const clientInfo = useSelector(state => state.clientInfo);
   const dispatch = useDispatch();
 
   useEffect(async () => {
     await dispatch(fetchUserInfo());
+    await dispatch(fetchClientInfo());
   });
 
   return (
@@ -50,7 +53,7 @@ export const NbosDashboard = () => {
                     <NbosSummaryLeft userInfo={userInfo} />
                   </div>
                   <div className="tw-row-span-3 tw-col-span-2">
-                    <NbosSummaryRight />
+                    <NbosSummaryRight clientInfo={clientInfo} />
                   </div>
                 </div>
                 <div className="tw-col-span-3">
