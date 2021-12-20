@@ -10,17 +10,23 @@ import { NbosPipelineGrid } from '../templates/NbosPipelineGrid.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUserInfo } from '../../store/userSlice.js';
 import { fetchClientInfo } from '../../store/clientsSlice';
+import { fetchSummary1 } from '../../store/summary1Slice';
+import { fetchSummary2 } from '../../store/summary2Slice';
 
 const { Header, Content, Sider } = Layout;
 
 export const NbosDashboard = () => {
   const userInfo = useSelector(state => state.userInfo);
   const clientInfo = useSelector(state => state.clientInfo);
+  const summary1 = useSelector(state => state.summary1);
+  const summary2 = useSelector(state => state.summary2);
   const dispatch = useDispatch();
 
   useEffect(async () => {
     await dispatch(fetchUserInfo());
     await dispatch(fetchClientInfo());
+    await dispatch(fetchSummary1());
+    await dispatch(fetchSummary2());
   });
 
   return (
@@ -53,7 +59,11 @@ export const NbosDashboard = () => {
                     <NbosSummaryLeft userInfo={userInfo} />
                   </div>
                   <div className="tw-row-span-3 tw-col-span-2">
-                    <NbosSummaryRight clientInfo={clientInfo} />
+                    <NbosSummaryRight
+                      clientInfo={clientInfo}
+                      summary1={summary1}
+                      summary2={summary2}
+                    />
                   </div>
                 </div>
                 <div className="tw-col-span-3">
