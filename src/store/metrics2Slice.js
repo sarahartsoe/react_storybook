@@ -11,7 +11,7 @@ export const fetchBehaviorMetrics = createAsyncThunk(
 );
 
 export const metrics2Slice = createSlice({
-  name: 'outcome',
+  name: 'behavior',
   initialState: {
     satisfactionY1: '##',
     satisfactionY2: '',

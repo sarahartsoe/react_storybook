@@ -4,6 +4,7 @@ import clientReducer from './clientsSlice';
 import summary1Reducer from './summary1Slice';
 import summary2Reducer from './summary2Slice';
 import outcomeMetricsReducer from './metricsSlice';
+import behaviorMetricsReducer from './metrics2Slice';
 
 export const store = configureStore(
   {
@@ -13,6 +14,7 @@ export const store = configureStore(
       summary1: summary1Reducer,
       summary2: summary2Reducer,
       outcomeMetrics: outcomeMetricsReducer,
+      behaviorMetrics: behaviorMetricsReducer,
     },
   },
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),

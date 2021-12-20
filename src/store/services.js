@@ -19,6 +19,9 @@ const services = {
   getOutcomeMetrics: () => {
     return axios.get(`${apiBaseURL}/outcome_metrics`);
   },
+  getBehaviorMetrics: () => {
+    return axios.get(`${apiBaseURL}/behavior_metrics`);
+  },
 };
 
 export default services;
