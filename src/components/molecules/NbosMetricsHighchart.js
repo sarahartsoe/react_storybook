@@ -21,10 +21,10 @@ export const NbosMetricsHighchart = () => {
     },
     xAxis: {
       categories: [
-        'Avg Overall RM Satisfaction',
-        'Client Calls',
-        'Prospect Calls',
-        'Strategies Updated',
+        'Loan Production',
+        'Deposit Growth',
+        'TM Growth',
+        'New Clients',
       ],
     },
     yAxis: {
