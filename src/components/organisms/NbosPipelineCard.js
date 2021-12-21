@@ -5,7 +5,7 @@ import { NbosSurface } from '../atoms/NbosSurface';
 import { NbosPipelineLabel } from '../atoms/NbosPipelineLabel';
 import { NbosPipelineToggleGroup } from '../atoms/NbosPipelineToggleGroup';
 
-export const NbosPipelineCard = () => (
+export const NbosPipelineCard = ({ opportunitySummary }) => (
   <NbosSurface>
     <div className="tw-grid tw-grid-rows-5">
       <div className="tw-pl-4 tw-pr-4 tw-pt-2">
@@ -15,7 +15,7 @@ export const NbosPipelineCard = () => (
         <NbosPipelineToggleGroup />
       </div>
       <div className="tw-row-span-3 tw-justify-center">
-        <NbosHighchartPipeline />
+        <NbosHighchartPipeline opportunitySummary={opportunitySummary} />
       </div>
       <div className="tw-pl-7">
         <NbosPipelineLabel />

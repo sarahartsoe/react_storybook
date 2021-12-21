@@ -18,7 +18,7 @@ export const NbosAgGrid = () => {
   ];
 
   return (
-    <div className="ag-theme-alpine" style={{ height: 400, width: 600 }}>
+    <div className="ag-theme-alpine" style={{ height: 400, width: 1655 }}>
       <AgGridReact rowData={rowData}>
         <AgGridColumn field="relationship"></AgGridColumn>
         <AgGridColumn field="product"></AgGridColumn>

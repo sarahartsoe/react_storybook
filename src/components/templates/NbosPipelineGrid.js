@@ -1,8 +1,10 @@
 import React from 'react';
 import { NbosPipelineCard } from '../organisms/NbosPipelineCard';
+import { NbosAgGrid } from '../molecules/NbosAgGrid';
 
-export const NbosPipelineGrid = () => (
+export const NbosPipelineGrid = ({ opportunitySummary }) => (
   <div className="">
-    <NbosPipelineCard />
+    <NbosPipelineCard opportunitySummary={opportunitySummary} />
+    <NbosAgGrid />
   </div>
 );

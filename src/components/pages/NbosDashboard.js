@@ -14,6 +14,7 @@ import { fetchSummary1 } from '../../store/summary1Slice';
 import { fetchSummary2 } from '../../store/summary2Slice';
 import { fetchOutcomeMetrics } from '../../store/metricsSlice';
 import { fetchBehaviorMetrics } from '../../store/metrics2Slice';
+import { fetchOpportunitySummary } from '../../store/opportunitiesSlice';
 
 const { Header, Content, Sider } = Layout;
 
@@ -24,6 +25,7 @@ export const NbosDashboard = () => {
   const summary2 = useSelector(state => state.summary2);
   const outcomeMetrics = useSelector(state => state.outcomeMetrics);
   const behaviorMetrics = useSelector(state => state.behaviorMetrics);
+  const opportunitySummary = useSelector(state => state.opportunitySummary);
   const dispatch = useDispatch();
 
   useEffect(async () => {
@@ -33,6 +35,7 @@ export const NbosDashboard = () => {
     await dispatch(fetchSummary2());
     await dispatch(fetchOutcomeMetrics());
     await dispatch(fetchBehaviorMetrics());
+    await dispatch(fetchOpportunitySummary());
   });
 
   return (
@@ -45,7 +48,7 @@ export const NbosDashboard = () => {
         <Header className="header">
           <NbosHeader />
         </Header>
-        <Layout>
+        <Layout className="tw-h-full" style={{ minHeight: '100vh' }}>
           <Sider
             width={200}
             style={{ height: '100%', position: 'absolute' }}
@@ -78,12 +81,13 @@ export const NbosDashboard = () => {
                 </div>
                 <div className="tw-col-span-3">
                   <NbosMetricsCard
+                    userInfo={userInfo}
                     outcomeMetrics={outcomeMetrics}
                     behaviorMetrics={behaviorMetrics}
                   />
                 </div>
                 <div className="tw-col-span-3">
-                  <NbosPipelineGrid />
+                  <NbosPipelineGrid opportunitySummary={opportunitySummary} />
                 </div>
               </div>
             </Content>

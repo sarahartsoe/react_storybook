@@ -22,7 +22,9 @@ const onChange = newValue => {
   console.log(newValue);
 };
 
-const initialSelectedIndex = options.findIndex(({ value }) => value === 'bar');
+const initialSelectedIndex = options.findIndex(
+  ({ value }) => value === 'outcome',
+);
 
 export const NbosMetricsToggle = () => {
   return (

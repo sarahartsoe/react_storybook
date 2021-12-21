@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import './metrics.css';
 
-export const NbosHighchartPipeline = () => {
+export const NbosHighchartPipeline = ({ opportunitySummary }) => {
   const options = {
     chart: {
       type: 'column',
@@ -33,14 +33,37 @@ export const NbosHighchartPipeline = () => {
     series: [
       {
         name: '2021',
-        data: [1300, 1300, 500, 700, 1200],
+        data: [
+          parseFloat(opportunitySummary.stageOne2021),
+          parseFloat(opportunitySummary.stageTwo2021),
+          parseFloat(opportunitySummary.stageThree2021),
+          parseFloat(opportunitySummary.stageFour2021),
+          parseFloat(opportunitySummary.booked2021),
+        ],
       },
       {
         name: '2020',
-        data: [1600, 1100, 500, 1600, 1100],
+        data: [
+          parseFloat(opportunitySummary.stageOne2020),
+          parseFloat(opportunitySummary.stageTwo2020),
+          parseFloat(opportunitySummary.stageThree2020),
+          parseFloat(opportunitySummary.stageFour2020),
+          parseFloat(opportunitySummary.booked2020),
+        ],
       },
     ],
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
 };
+
+// stageOne2020: '',
+// stageTwo2020: '',
+// stageThree2020: '',
+// stageFour2020: '',
+// booked2020: '',
+// stageOne2021: '',
+// stageTwo2021: '',
+// stageThree2021: '',
+// stageFour2021: '',
+// booked2021: '',
