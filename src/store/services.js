@@ -22,6 +22,9 @@ const services = {
   getBehaviorMetrics: () => {
     return axios.get(`${apiBaseURL}/behavior_metrics`);
   },
+  getOpportunitySummary: () => {
+    return axios.get(`${apiBaseURL}/opportunities_summary`);
+  },
 };
 
 export default services;
