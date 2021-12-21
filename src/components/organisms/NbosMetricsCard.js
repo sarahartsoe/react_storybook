@@ -5,19 +5,17 @@ import { NbosSurface } from '../atoms/NbosSurface';
 
 export const NbosMetricsCard = ({
   userInfo,
-  outcomeMetrics,
-  behaviorMetrics,
+  chartData,
+  chartType,
+  onChange,
 }) => (
   <NbosSurface>
     <div className="tw-grid tw-grid-rows-5">
       <div className="tw-pl-4 tw-pr-4 tw-pt-2">
-        <NbosMetricsHeader userInfo={userInfo} />
+        <NbosMetricsHeader userInfo={userInfo} onChange={onChange} />
       </div>
       <div className="tw-row-span-3 tw-justify-center">
-        <NbosMetricsHighchart
-          outcomeMetrics={outcomeMetrics}
-          behaviorMetrics={behaviorMetrics}
-        />
+        <NbosMetricsHighchart chartData={chartData} chartType={chartType} />
       </div>
     </div>
   </NbosSurface>

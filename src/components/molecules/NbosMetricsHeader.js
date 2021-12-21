@@ -1,8 +1,8 @@
 import React from 'react';
-import { NbosMetricsToggle } from '../atoms/NbosMetricsToggle';
+import NbosMetricsToggle from '../atoms/NbosMetricsToggle';
 import { NbosClientInfoMainText } from '../atoms/NbosClientInfoMainText';
 
-export const NbosMetricsHeader = ({ userInfo }) => (
+export const NbosMetricsHeader = ({ userInfo, onChange }) => (
   <div className="tw-grid tw-grid-cols-2">
     <div>
       <NbosClientInfoMainText
@@ -10,7 +10,7 @@ export const NbosMetricsHeader = ({ userInfo }) => (
       />
     </div>
     <div>
-      <NbosMetricsToggle />
+      <NbosMetricsToggle changeHandler={onChange} />
     </div>
   </div>
 );

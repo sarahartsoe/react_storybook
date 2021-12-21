@@ -3,7 +3,9 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import './metrics.css';
 
-export const NbosMetricsHighchart = ({ outcomeMetrics }) => {
+export const NbosMetricsHighchart = ({ chartData, chartType }) => {
+  //const options = chartType ==='behavior' ? {} : {}
+
   const options = {
     chart: {
       type: 'bar',
@@ -20,12 +22,15 @@ export const NbosMetricsHighchart = ({ outcomeMetrics }) => {
       text: null,
     },
     xAxis: {
-      categories: [
-        'Loan Production',
-        'Deposit Growth',
-        'TM Growth',
-        'New Clients',
-      ],
+      categories:
+        chartType === 'behavior'
+          ? ['Loan Production', 'Deposit Growth', 'TM Growth', 'New Clients']
+          : [
+              'Avg Overall RM Satisfaction',
+              'Client Calls',
+              'Prospect Calls',
+              'Strategies Updated',
+            ],
     },
     yAxis: {
       title: {
@@ -38,24 +43,49 @@ export const NbosMetricsHighchart = ({ outcomeMetrics }) => {
     series: [
       {
         name: 'RM',
-        data: [
-          parseFloat(outcomeMetrics.loanProdY1),
-          parseFloat(outcomeMetrics.DepGrowthY1),
-          parseFloat(outcomeMetrics.TmGrowthY1),
-          parseFloat(outcomeMetrics.newClientsY1),
-        ],
+        data:
+          chartType === 'behavior'
+            ? [
+                parseFloat(chartData.loanProdY1),
+                parseFloat(chartData.DepGrowthY1),
+                parseFloat(chartData.TmGrowthY1),
+                parseFloat(chartData.newClientsY1),
+              ]
+            : [
+                parseFloat(chartData.satisfactionY1),
+                parseFloat(chartData.clientCallsY1),
+                parseFloat(chartData.prospectCallsY1),
+                parseFloat(chartData.strategiesY1),
+              ],
       },
       {
         name: 'This Time Last Year',
-        data: [
-          parseFloat(outcomeMetrics.loanProdY2),
-          parseFloat(outcomeMetrics.DepGrowthY2),
-          parseFloat(outcomeMetrics.TmGrowthY2),
-          parseFloat(outcomeMetrics.newClientsY2),
-        ],
+        data:
+          chartType === 'behavior'
+            ? [
+                parseFloat(chartData.loanProdY2),
+                parseFloat(chartData.DepGrowthY2),
+                parseFloat(chartData.TmGrowthY2),
+                parseFloat(chartData.newClientsY2),
+              ]
+            : [
+                parseFloat(chartData.satisfactionY2),
+                parseFloat(chartData.clientCallsY2),
+                parseFloat(chartData.prospectCallsY2),
+                parseFloat(chartData.strategiesY2),
+              ],
       },
     ],
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
 };
+
+// satisfactionY1: '##',
+// satisfactionY2: '',
+// clientCallsY1: '',
+// clientCallsY2: '',
+// prospectCallsY1: '',
+// prospectCallsY2: '',
+// strategiesY1: '',
+// strategiesY2: '',

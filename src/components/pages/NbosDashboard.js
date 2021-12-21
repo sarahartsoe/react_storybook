@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import './components/pages/home/style.css';
 import { Layout } from 'antd';
 import { NbosHeader } from '../atoms/NbosHeader.js';
@@ -27,6 +27,18 @@ export const NbosDashboard = () => {
   const behaviorMetrics = useSelector(state => state.behaviorMetrics);
   const opportunitySummary = useSelector(state => state.opportunitySummary);
   const dispatch = useDispatch();
+
+  const [metricsData, setMetricsData] = useState('outcome');
+
+  const handleChangeToggle = async value => {
+    setMetricsData(value);
+    if (value === 'behavior ' && behaviorMetrics.length === 0) {
+      await dispatch(fetchBehaviorMetrics());
+    } else if (value === 'outcome' && outcomeMetrics.length === 0) {
+      await dispatch(fetchOutcomeMetrics());
+    }
+    console.log(value);
+  };
 
   useEffect(async () => {
     await dispatch(fetchUserInfo());
@@ -82,8 +94,15 @@ export const NbosDashboard = () => {
                 <div className="tw-col-span-3">
                   <NbosMetricsCard
                     userInfo={userInfo}
+                    chartData={
+                      metricsData === 'behavior'
+                        ? behaviorMetrics
+                        : outcomeMetrics
+                    }
+                    chartType={metricsData}
                     outcomeMetrics={outcomeMetrics}
                     behaviorMetrics={behaviorMetrics}
+                    onChange={handleChangeToggle}
                   />
                 </div>
                 <div className="tw-col-span-3">
