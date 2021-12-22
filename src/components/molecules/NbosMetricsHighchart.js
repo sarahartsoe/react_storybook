@@ -4,8 +4,7 @@ import HighchartsReact from 'highcharts-react-official';
 import './metrics.css';
 
 export const NbosMetricsHighchart = ({ chartData, chartType }) => {
-  const [metricChartData, setMetricChartData] = useState;
-  console.log(chartData)({
+  const highChartOptions = {
     chart: {
       type: 'bar',
       spacingBottom: 15,
@@ -39,11 +38,26 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
         enabled: false,
       },
     },
-    series: [
+    series: [],
+  };
+
+  useEffect(() => {
+    const xAxis = {
+      categories:
+        chartType === 'behavior'
+          ? ['Loan Production', 'Deposit Growth', 'TM Growth', 'New Clients']
+          : [
+              'Avg Overall RM Satisfaction',
+              'Client Calls',
+              'Prospect Calls',
+              'Strategies Updated',
+            ],
+    };
+    const series = [
       {
         name: 'RM',
         data:
-          chartType === 'behavior'
+          chartType === 'outcome'
             ? [
                 parseFloat(chartData.loanProdY1),
                 parseFloat(chartData.DepGrowthY1),
@@ -60,7 +74,7 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
       {
         name: 'This Time Last Year',
         data:
-          chartType === 'behavior'
+          chartType === 'outcome'
             ? [
                 parseFloat(chartData.loanProdY2),
                 parseFloat(chartData.DepGrowthY2),
@@ -74,21 +88,16 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
                 parseFloat(chartData.strategiesY2),
               ],
       },
-    ],
-  });
-
-  useEffect(() => {
-    setMetricChartData();
+    ];
+    const newMetricChartData = {
+      ...highChartOptions,
+      xAxis: xAxis,
+      series: series,
+    };
+    setMetricChartData(newMetricChartData);
   }, [chartData]);
+
+  const [metricChartData, setMetricChartData] = useState(highChartOptions);
 
   return <HighchartsReact highcharts={Highcharts} options={metricChartData} />;
 };
-
-// satisfactionY1: '##',
-// satisfactionY2: '',
-// clientCallsY1: '',
-// clientCallsY2: '',
-// prospectCallsY1: '',
-// prospectCallsY2: '',
-// strategiesY1: '',
-// strategiesY2: '',
