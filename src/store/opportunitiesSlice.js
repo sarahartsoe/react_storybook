@@ -5,7 +5,6 @@ export const fetchOpportunitySummary = createAsyncThunk(
   'opportunitySummary/setOpportunitySummary',
   async () => {
     const reponse = await services.getOpportunitySummary();
-    console.log(reponse.data);
     return reponse.data;
   },
 );

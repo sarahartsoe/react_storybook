@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import './metrics.css';
 
 export const NbosMetricsHighchart = ({ chartData, chartType }) => {
-  //const options = chartType ==='behavior' ? {} : {}
-
-  const options = {
+  const [metricChartData, setMetricChartData] = useState;
+  console.log(chartData)({
     chart: {
       type: 'bar',
       spacingBottom: 15,
@@ -76,9 +75,13 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
               ],
       },
     ],
-  };
+  });
 
-  return <HighchartsReact highcharts={Highcharts} options={options} />;
+  useEffect(() => {
+    setMetricChartData();
+  }, [chartData]);
+
+  return <HighchartsReact highcharts={Highcharts} options={metricChartData} />;
 };
 
 // satisfactionY1: '##',

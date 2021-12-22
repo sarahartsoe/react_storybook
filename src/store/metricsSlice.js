@@ -5,7 +5,6 @@ export const fetchOutcomeMetrics = createAsyncThunk(
   'outcome/setOutcomeMetrics',
   async () => {
     const reponse = await services.getOutcomeMetrics();
-    console.log(reponse.data);
     return reponse.data[0];
   },
 );

@@ -5,7 +5,6 @@ export const fetchBehaviorMetrics = createAsyncThunk(
   'behavior/setBehaviorMetrics',
   async () => {
     const reponse = await services.getBehaviorMetrics();
-    console.log(reponse.data);
     return reponse.data[0];
   },
 );

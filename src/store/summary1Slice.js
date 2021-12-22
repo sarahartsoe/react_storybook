@@ -5,7 +5,6 @@ export const fetchSummary1 = createAsyncThunk(
   'client/setSummary1',
   async () => {
     const reponse = await services.getSummary1();
-    console.log(reponse.data);
     return reponse.data[0];
   },
 );
