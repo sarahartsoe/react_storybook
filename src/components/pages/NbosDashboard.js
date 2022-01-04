@@ -63,7 +63,7 @@ export const NbosDashboard = () => {
         <Layout className="tw-h-full" style={{ minHeight: '100vh' }}>
           <Sider
             width={200}
-            style={{ height: '100%', position: 'absolute' }}
+            style={{ height: '100%' }}
             className="site-layout-background tw-h-full"
           >
             <NbosSideNav />

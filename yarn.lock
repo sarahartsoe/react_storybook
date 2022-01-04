@@ -4994,6 +4994,13 @@
   "resolved" "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz"
   "version" "2.0.0"
 
+"chroma-js@^2.1.2":
+  "integrity" "sha512-ri/ouYDWuxfus3UcaMxC1Tfp3IE9K5iQzxc2hSxbBRVNQFut1UuGAsZmiAf2mOUubzGJwgMSv9lHg+XqLaz1QQ=="
+  "resolved" "https://registry.npmjs.org/chroma-js/-/chroma-js-2.1.2.tgz"
+  "version" "2.1.2"
+  dependencies:
+    "cross-env" "^6.0.3"
+
 "chrome-trace-event@^1.0.2":
   "integrity" "sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg=="
   "resolved" "https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.3.tgz"
@@ -5514,6 +5521,13 @@
   "integrity" "sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ=="
   "resolved" "https://registry.npmjs.org/create-require/-/create-require-1.1.1.tgz"
   "version" "1.1.1"
+
+"cross-env@^6.0.3":
+  "integrity" "sha512-+KqxF6LCvfhWvADcDPqo64yVIB31gv/jQulX2NGzKS/g3GEVz6/pt4wjHFtFWsHMddebWD/sDthJemzM4MaAag=="
+  "resolved" "https://registry.npmjs.org/cross-env/-/cross-env-6.0.3.tgz"
+  "version" "6.0.3"
+  dependencies:
+    "cross-spawn" "^7.0.0"
 
 "cross-spawn@^6.0.0":
   "integrity" "sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ=="
@@ -12795,6 +12809,14 @@
   "integrity" "sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA=="
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
+
+"react-nice-avatar@^1.2.4":
+  "integrity" "sha512-Ocx4vmnehSqMBo3WN/rPAgGVQEj1WiaihDpA4FRzxf3TKnhdROj78xZmXqU1vXX+V397FtqmRdcWueVbNJC6/w=="
+  "resolved" "https://registry.npmjs.org/react-nice-avatar/-/react-nice-avatar-1.2.4.tgz"
+  "version" "1.2.4"
+  dependencies:
+    "chroma-js" "^2.1.2"
+    "prop-types" "^15.7.2"
 
 "react-popper-tooltip@^3.1.1":
   "integrity" "sha512-EnERAnnKRptQBJyaee5GJScWNUKQPDD2ywvzZyUjst/wj5U64C8/CnSYLNEmP2hG0IJ3ZhtDxE8oDN+KOyavXQ=="

@@ -1,16 +1,19 @@
 import React from 'react';
-import { Avatar } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+// import { Avatar } from 'antd';
+// import { UserOutlined } from '@ant-design/icons';
+import Avatar, { genConfig } from 'react-nice-avatar';
 
 export const NbosClientInfoAvatar = () => {
+  const config = genConfig({
+    sex: 'man',
+    mouthStyle: 'smile',
+    shape: 'circle',
+    bgColor: 'pink',
+  });
   return (
     <Avatar
-      shape="square"
-      size={64}
-      style={{
-        backgroundColor: '#87d068',
-      }}
-      icon={<UserOutlined />}
+      style={{ width: '5rem', height: '5rem', float: 'center' }}
+      {...config}
     />
   );
 };

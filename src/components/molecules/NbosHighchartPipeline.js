@@ -24,7 +24,7 @@ export const NbosHighchartPipeline = ({ opportunitySummary }) => {
     },
     yAxis: {
       title: {
-        text: null,
+        text: 'Revenue',
       },
       labels: {
         enabled: false,
