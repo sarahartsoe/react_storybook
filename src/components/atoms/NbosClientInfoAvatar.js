@@ -9,6 +9,17 @@ export const NbosClientInfoAvatar = () => {
     mouthStyle: 'smile',
     shape: 'circle',
     bgColor: 'pink',
+    hairStyle: 'normal',
+    faceColor: 'tan',
+    earSize: 'small',
+    hairColor: 'black',
+    hairColorRandom: 'false',
+    hatStyle: 'none',
+    eyeStyle: 'round',
+    glassesStyle: 'none',
+    noseStyle: 'round',
+    shirtStyle: 'polo',
+    shirtColor: 'teal',
   });
   return (
     <Avatar
