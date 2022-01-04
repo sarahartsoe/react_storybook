@@ -6,6 +6,7 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 export const NbosAgGrid = () => {
   const rowData = [
     {
+      headerName: 'Relationship',
       relationship: 'Relationship 1',
       product: 'Loan',
       sales: 'Oppurtunity',
@@ -13,14 +14,48 @@ export const NbosAgGrid = () => {
       date: '1/1/2021',
       details: 'Details',
     },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxter', price: 72000 },
+    {
+      headerName: 'Relationship',
+      relationship: 'Relationship 2',
+      product: 'Lease',
+      sales: 'Proposal',
+      revenue: '$5.67 MM',
+      date: '2/1/2021',
+      details: 'Details',
+    },
+    {
+      headerName: 'Relationship',
+      relationship: 'Relationship 3',
+      product: 'Term Loan',
+      sales: 'Pending',
+      revenue: '$4.81 MM',
+      date: '2/1/2021',
+      details: 'Details',
+    },
+    {
+      headerName: 'Relationship',
+      relationship: 'Relationship 4',
+      product: 'Revolving Credit',
+      sales: 'Pending',
+      revenue: '$3.78 MM',
+      date: '2/1/2021',
+      details: 'Details',
+    },
+    {
+      headerName: 'Relationship',
+      relationship: 'Relationship 5',
+      product: 'Line of Credit',
+      sales: 'Commitment',
+      revenue: '$3.78 MM',
+      date: '5/2/2021',
+      details: 'Details',
+    },
   ];
 
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: 1655 }}>
       <AgGridReact rowData={rowData}>
-        <AgGridColumn field="relationship"></AgGridColumn>
+        <AgGridColumn></AgGridColumn>
         <AgGridColumn field="product"></AgGridColumn>
         <AgGridColumn field="sales"></AgGridColumn>
         <AgGridColumn field="revenue"></AgGridColumn>

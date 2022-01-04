@@ -100,8 +100,8 @@ export const NbosDashboard = () => {
                         : outcomeMetrics
                     }
                     chartType={metricsData}
-                    outcomeMetrics={outcomeMetrics}
-                    behaviorMetrics={behaviorMetrics}
+                    // outcomeMetrics={outcomeMetrics}
+                    // behaviorMetrics={behaviorMetrics}
                     onChange={handleChangeToggle}
                   />
                 </div>
