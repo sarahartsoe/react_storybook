@@ -25,6 +25,9 @@ const services = {
   getOpportunitySummary: () => {
     return axios.get(`${apiBaseURL}/opportunities_summary`);
   },
+  getOpportunitiesDetail: () => {
+    return axios.get(`${apiBaseURL}/opportunities_detail`);
+  },
 };
 
 export default services;

@@ -8,7 +8,7 @@ export const NbosClientInfoAvatar = () => {
     sex: 'man',
     mouthStyle: 'smile',
     shape: 'circle',
-    bgColor: 'pink',
+    bgColor: 'lightsteelblue',
     hairStyle: 'normal',
     faceColor: 'tan',
     earSize: 'small',
@@ -19,12 +19,7 @@ export const NbosClientInfoAvatar = () => {
     glassesStyle: 'none',
     noseStyle: 'round',
     shirtStyle: 'polo',
-    shirtColor: 'teal',
+    shirtColor: 'white',
   });
-  return (
-    <Avatar
-      style={{ width: '5rem', height: '5rem', float: 'center' }}
-      {...config}
-    />
-  );
+  return <Avatar style={{ width: '5rem', height: '5rem' }} {...config} />;
 };
