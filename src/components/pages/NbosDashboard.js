@@ -15,6 +15,7 @@ import { fetchSummary2 } from '../../store/summary2Slice';
 import { fetchOutcomeMetrics } from '../../store/metricsSlice';
 import { fetchBehaviorMetrics } from '../../store/metrics2Slice';
 import { fetchOpportunitySummary } from '../../store/opportunitiesSlice';
+import { fetchOpportunitiesDetail } from '../../store/opportunitiesDetailSlice';
 
 const { Header, Content, Sider } = Layout;
 
@@ -26,6 +27,7 @@ export const NbosDashboard = () => {
   const outcomeMetrics = useSelector(state => state.outcomeMetrics);
   const behaviorMetrics = useSelector(state => state.behaviorMetrics);
   const opportunitySummary = useSelector(state => state.opportunitySummary);
+  const opportunitiesDetail = useSelector(state => state.opportunitiesDetail);
   const dispatch = useDispatch();
 
   const [metricsData, setMetricsData] = useState('outcome');
@@ -48,6 +50,7 @@ export const NbosDashboard = () => {
     await dispatch(fetchOutcomeMetrics());
     await dispatch(fetchBehaviorMetrics());
     await dispatch(fetchOpportunitySummary());
+    await dispatch(fetchOpportunitiesDetail());
   });
 
   return (
@@ -106,7 +109,10 @@ export const NbosDashboard = () => {
                   />
                 </div>
                 <div className="tw-col-span-3">
-                  <NbosPipelineGrid opportunitySummary={opportunitySummary} />
+                  <NbosPipelineGrid
+                    opportunitySummary={opportunitySummary}
+                    opportunitiesDetail={opportunitiesDetail}
+                  />
                 </div>
               </div>
             </Content>

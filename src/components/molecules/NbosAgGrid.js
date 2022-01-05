@@ -3,15 +3,15 @@ import { AgGridColumn, AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
-export const NbosAgGrid = () => {
+export const NbosAgGrid = ({ opportunitiesDetail }) => {
   const rowData = [
     {
       headerName: 'Relationship',
       relationship: 'Relationship 1',
-      product: 'Loan',
-      sales: 'Oppurtunity',
-      revenue: '$4.81 MM',
-      date: '1/1/2021',
+      product: opportunitiesDetail.productType,
+      sales: opportunitiesDetail.salesStage,
+      revenue: opportunitiesDetail.revenue,
+      date: opportunitiesDetail.dateClosed,
       details: 'Details',
     },
     {
@@ -65,3 +65,9 @@ export const NbosAgGrid = () => {
     </div>
   );
 };
+
+//     clientName: '##',
+// productType: '',
+// salesStage: '',
+// revenue: '',
+// dateClosed: '',
