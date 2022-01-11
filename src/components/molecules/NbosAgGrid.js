@@ -67,17 +67,38 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
 
   return (
     <div className="ag-theme-alpine" style={{ height: 400, width: 1655 }}>
-      <AgGridReact rowData={opportunitiesDetail.oppurtunities}>
-        <AgGridColumn headerName="Relationship" sortable={true}></AgGridColumn>
-        <AgGridColumn headerName="Product Type" sortable={true}></AgGridColumn>
-        <AgGridColumn headerName="Sales Stage" sortable={true}></AgGridColumn>
+      <AgGridReact rowData={opportunitiesDetail.opportunities}>
+        <AgGridColumn
+          headerName="Relationship"
+          sortable={true}
+          field="client_name"
+        ></AgGridColumn>
+        <AgGridColumn
+          headerName="Product Type"
+          sortable={true}
+          field="product_type"
+        ></AgGridColumn>
+        <AgGridColumn
+          headerName="Sales Stage"
+          sortable={true}
+          field="sales_stage"
+        ></AgGridColumn>
         <AgGridColumn
           headerName="Revenue"
+          field="revenue"
           sore="desc"
           sortable={true}
         ></AgGridColumn>
-        <AgGridColumn headerName="Date Closed" sortable={true}></AgGridColumn>
-        <AgGridColumn headerName="Details" sortable={true}></AgGridColumn>
+        <AgGridColumn
+          headerName="Date Closed"
+          sortable={true}
+          field="date_closed"
+        ></AgGridColumn>
+        <AgGridColumn
+          headerName="Details"
+          sortable={true}
+          field="details"
+        ></AgGridColumn>
       </AgGridReact>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import './components/pages/home/style.css';
+import './home/style.css';
 import { Layout } from 'antd';
 import { NbosHeader } from '../atoms/NbosHeader.js';
 import { NbosSideNav } from '../atoms/NbosSideNav.js';
@@ -67,58 +67,58 @@ export const NbosDashboard = () => {
           </Header>
           <Layout className="tw-h-full" style={{ minHeight: '100vh' }}>
             <Sider
+              style={{
+                height: 2300,
+              }}
+              class="sider"
               width={200}
-              style={{ height: '100%' }}
+              height="2300px"
               className="site-layout-background tw-h-full"
             >
               <NbosSideNav />
             </Sider>
-            <Layout style={{ padding: '0 24px 24px' }}>
-              <Content
-                className="site-layout-background tw-m-8"
-                style={{
-                  padding: 24,
-                  margin: 64,
-                  minHeight: 280,
-                  backgroundColor: '#F9F9F9',
-                }}
-              >
-                <div className="tw-grid tw-grid-cols-3 tw-gap-4">
-                  <div className="tw-grid tw-grid-cols-3 tw-grid-rows-3 tw-col-span-3 tw-grid-flow-col tw-gap-3">
-                    <div className="tw-row-span-3 tw-col-span-1">
-                      <NbosSummaryLeft userInfo={userInfo} />
-                    </div>
-                    <div className="tw-row-span-3 tw-col-span-2">
-                      <NbosSummaryRight
-                        clientInfo={clientInfo}
-                        summary1={summary1}
-                        summary2={summary2}
-                      />
-                    </div>
+            <Content
+              className="site-layout-background tw-m-8"
+              style={{
+                padding: 24,
+                margin: 64,
+                height: 2300,
+                backgroundColor: '#F9F9F9',
+              }}
+            >
+              <div className="tw-grid tw-grid-cols-3 tw-gap-4">
+                <div className="tw-grid tw-grid-cols-3 tw-grid-rows-3 tw-col-span-3 tw-grid-flow-col tw-gap-3">
+                  <div className="tw-row-span-3 tw-col-span-1">
+                    <NbosSummaryLeft userInfo={userInfo} />
                   </div>
-                  <div className="tw-col-span-3">
-                    <NbosMetricsCard
-                      userInfo={userInfo}
-                      chartData={
-                        metricsData === 'behavior'
-                          ? behaviorMetrics
-                          : outcomeMetrics
-                      }
-                      chartType={metricsData}
-                      // outcomeMetrics={outcomeMetrics}
-                      // behaviorMetrics={behaviorMetrics}
-                      onChange={handleChangeToggle}
-                    />
-                  </div>
-                  <div className="tw-col-span-3">
-                    <NbosPipelineGrid
-                      opportunitySummary={opportunitySummary}
-                      opportunitiesDetail={opportunitiesDetail}
+                  <div className="tw-row-span-3 tw-col-span-2">
+                    <NbosSummaryRight
+                      clientInfo={clientInfo}
+                      summary1={summary1}
+                      summary2={summary2}
                     />
                   </div>
                 </div>
-              </Content>
-            </Layout>
+                <div className="tw-col-span-3">
+                  <NbosMetricsCard
+                    userInfo={userInfo}
+                    chartData={
+                      metricsData === 'behavior'
+                        ? behaviorMetrics
+                        : outcomeMetrics
+                    }
+                    chartType={metricsData}
+                    onChange={handleChangeToggle}
+                  />
+                </div>
+                <div className="tw-col-span-3">
+                  <NbosPipelineGrid
+                    opportunitySummary={opportunitySummary}
+                    opportunitiesDetail={opportunitiesDetail}
+                  />
+                </div>
+              </div>
+            </Content>
           </Layout>
         </Layout>
       </div>
