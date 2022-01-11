@@ -7,19 +7,43 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
   const highChartOptions = {
     chart: {
       type: 'bar',
-      spacingBottom: 15,
-      spacingTop: 10,
       spacingLeft: 10,
       spacingRight: 10,
       marginLeft: 300,
       marginRight: 300,
       width: null,
-      height: null,
+      height: 300,
+    },
+    legend: {
+      align: 'left',
+    },
+    plotOptions: {
+      bar: {
+        dataLabels: {
+          enabled: true,
+        },
+      },
+      series: {
+        borderRadius: 5,
+        pointPadding: 0.3,
+      },
     },
     title: {
       text: null,
     },
     xAxis: {
+      lineWidth: 0,
+      minorGridLineWidth: 0,
+      lineColor: 'transparent',
+      minorTickLength: 0,
+      tickLength: 0,
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            enabled: true,
+          },
+        },
+      },
       categories:
         chartType === 'behavior'
           ? ['Loan Production', 'Deposit Growth', 'TM Growth', 'New Clients']
@@ -31,11 +55,24 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
             ],
     },
     yAxis: {
+      lineWidth: 0,
+      minorGridLineWidth: 0,
+      lineColor: 'transparent',
+      minorTickLength: 0,
+      tickLength: 0,
+      visible: false,
       title: {
         text: null,
       },
       labels: {
         enabled: false,
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            enabled: true,
+          },
+        },
       },
     },
     series: [],
@@ -56,6 +93,7 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
     const series = [
       {
         name: 'RM',
+        color: '#0166CC',
         data:
           chartType === 'outcome'
             ? [
@@ -67,12 +105,19 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
             : [
                 parseFloat(chartData.satisfactionY1),
                 parseFloat(chartData.clientCallsY1),
-                parseFloat(chartData.prospectCallsY1),
+                {
+                  y: parseFloat(chartData.prospectCallsY1),
+
+                  color: `${
+                    chartData.prospectCallsY1 > 5 ? '#808080' : '#FF0000'
+                  }`,
+                },
                 parseFloat(chartData.strategiesY1),
               ],
       },
       {
         name: 'This Time Last Year',
+        color: '#C4C4C4',
         data:
           chartType === 'outcome'
             ? [
@@ -84,7 +129,13 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
             : [
                 parseFloat(chartData.satisfactionY2),
                 parseFloat(chartData.clientCallsY2),
-                parseFloat(chartData.prospectCallsY2),
+                {
+                  y: parseFloat(chartData.prospectCallsY2),
+
+                  color: `${
+                    chartData.prospectCallsY2 > 5 ? '#808080' : '#FF0000'
+                  }`,
+                },
                 parseFloat(chartData.strategiesY2),
               ],
       },

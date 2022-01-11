@@ -12,20 +12,17 @@ export const fetchOpportunitiesDetail = createAsyncThunk(
 export const opportunitiesDetailSlice = createSlice({
   name: 'opportunitiesDetail',
   initialState: {
-    clientName: '##',
-    productType: '',
-    salesStage: '',
-    revenue: '',
-    dateClosed: '',
+    oopportunities: [],
   },
   reducers: {},
   extraReducers: {
     [fetchOpportunitiesDetail.fulfilled]: (state, { payload }) => {
-      state.clientName = `${payload[1].client_name}`;
-      state.productType = `${payload[1].product_type}`;
-      state.salesStage = `${payload[1].sales_stage}`;
-      state.revenue = `${payload[1].revenue}`;
-      state.dateClosed = `${payload[1].date_closed}`;
+      state.oopportunities = payload;
+      // state.clientName = `${payload[1].client_name}`;
+      // state.productType = `${payload[1].product_type}`;
+      // state.salesStage = `${payload[1].sales_stage}`;
+      // state.revenue = `${payload[1].revenue}`;
+      // state.dateClosed = `${payload[1].date_closed}`;
     },
   },
 });

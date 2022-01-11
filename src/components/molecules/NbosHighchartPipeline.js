@@ -21,6 +21,11 @@ export const NbosHighchartPipeline = ({ opportunitySummary }) => {
     },
     xAxis: {
       categories: ['Stage 1', 'Stage 2', 'Stage 3', 'Stage 4', 'Booked YTD'],
+      lineWidth: 0,
+      minorGridLineWidth: 0,
+      lineColor: 'transparent',
+      minorTickLength: 0,
+      tickLength: 0,
     },
     yAxis: {
       title: {
