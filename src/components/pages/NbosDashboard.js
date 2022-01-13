@@ -6,7 +6,7 @@ import { NbosSideNav } from '../atoms/NbosSideNav.js';
 import { NbosSummaryLeft } from '../templates/NbosSummaryLeft.js';
 import { NbosSummaryRight } from '../templates/NbosSummaryRight.js';
 import { NbosMetricsCard } from '../organisms/NbosMetricsCard';
-import { NbosPipelineGrid } from '../templates/NbosPipelineGrid.js';
+import NbosPipelineGrid from '../templates/NbosPipelineGrid.js';
 import { useSelector, useDispatch, Provider } from 'react-redux';
 import { fetchUserInfo } from '../../store/userSlice.js';
 import { fetchClientInfo } from '../../store/clientsSlice';
