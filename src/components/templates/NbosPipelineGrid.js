@@ -1,6 +1,7 @@
 import React from 'react';
 import { NbosPipelineCard } from '../organisms/NbosPipelineCard';
-import { NbosAgGrid } from '../molecules/NbosAgGrid';
+import { NbosPipelineGridCard } from '../organisms/NbosPipelineGridCard';
+// import { NbosAgGrid } from '../molecules/NbosAgGrid';
 
 export const NbosPipelineGrid = ({
   opportunitySummary,
@@ -8,6 +9,6 @@ export const NbosPipelineGrid = ({
 }) => (
   <div className="">
     <NbosPipelineCard opportunitySummary={opportunitySummary} />
-    <NbosAgGrid opportunitiesDetail={opportunitiesDetail} />
+    <NbosPipelineGridCard opportunitiesDetail={opportunitiesDetail} />
   </div>
 );

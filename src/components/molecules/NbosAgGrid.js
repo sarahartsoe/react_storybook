@@ -1,7 +1,7 @@
 import React from 'react';
 import { AgGridColumn, AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+import 'ag-grid-community/dist/styles/ag-theme-material.css';
 // import { format } from 'date-fns';
 
 export const NbosAgGrid = ({ opportunitiesDetail }) => {
@@ -66,7 +66,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
   // ];
 
   return (
-    <div className="ag-theme-alpine" style={{ height: 400, width: 1655 }}>
+    <div className="ag-theme-material" style={{ height: 400, width: 1655 }}>
       <AgGridReact rowData={opportunitiesDetail.opportunities}>
         <AgGridColumn
           headerName="Relationship"
