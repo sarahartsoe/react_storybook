@@ -1,13 +1,3 @@
-export const twoDecimals = a => {
-  const number = parseFloat(a);
-  return number.toFixed(2);
-};
-
-export const threeDecimals = a => {
-  const number = parseFloat(a);
-  return number.toFixed(3);
-};
-
 export const formatCurrency = a => {
   const myArray = a.split('.');
   const number = parseFloat(a);
