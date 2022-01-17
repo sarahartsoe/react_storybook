@@ -20,7 +20,9 @@ export default function NbosPipelineGrid({
     <div className="">
       <NbosPipelineCard opportunitySummary={opportunitySummary} />
       <NbosPipelineGridCard
-        opportunitiesDetail={opportunitiesDetail}
+        opportunitiesDetail={
+          show5 ? newArrayTop5 : opportunitiesDetail.opportunities
+        }
         top5={newArrayTop5}
         show5={show5}
       />

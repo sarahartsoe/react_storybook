@@ -1,4 +1,6 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../../store';
 
 import { NbosDashboard } from '../../components/pages/NbosDashboard';
 
@@ -6,6 +8,13 @@ import { NbosDashboard } from '../../components/pages/NbosDashboard';
 export default {
   title: 'pages/NbosDashboard',
   component: NbosDashboard,
+  decorators: [
+    Story => (
+      <Provider store={store}>
+        <Story />
+      </Provider>
+    ),
+  ],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
