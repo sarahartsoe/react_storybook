@@ -4,6 +4,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 // import { format } from 'date-fns';
 import { formatCurrency } from '../../utilities/utilities.js';
+import './metrics.css';
 
 export const NbosAgGrid = ({ opportunitiesDetail }) => {
   // const dateClosed = new Date('2021-01-26T08:53:59Z');
@@ -16,6 +17,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
   const defaultColDef = {
     resizable: true,
     flex: 1,
+    type: 'leftAligned',
   };
 
   return (
@@ -26,24 +28,28 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
     >
       <AgGridReact rowData={opportunitiesDetail} defaultColDef={defaultColDef}>
         <AgGridColumn
+          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Relationship"
           sortable={true}
           field="client_name"
           style={{ width: '99.9%' }}
         ></AgGridColumn>
         <AgGridColumn
+          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Product Type"
           sortable={true}
           field="product_type"
-          style={{ width: '99.9%' }}
+          style={{ width: '99.9%', align: 'left' }}
         ></AgGridColumn>
         <AgGridColumn
+          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Sales Stage"
           sortable={true}
           field="sales_stage"
           style={{ width: '99.9%' }}
         ></AgGridColumn>
         <AgGridColumn
+          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Revenue"
           field="revenue"
           sort="desc"
@@ -54,12 +60,14 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           }}
         ></AgGridColumn>
         <AgGridColumn
+          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Date Closed"
           sortable={true}
           field="date_closed"
           style={{ width: '99.9%' }}
         ></AgGridColumn>
         <AgGridColumn
+          className="tw-place-content-start tw-text-left rowAlign"
           headerName=""
           sortable={true}
           field="details"

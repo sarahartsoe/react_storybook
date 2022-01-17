@@ -3,7 +3,7 @@ import React from 'react';
 import { NbosSurface } from '../atoms/NbosSurface';
 import { NbosSummarySubtextLeft } from '../atoms/NbosSummarySubtextLeft';
 import { NbosSummaryNumeric } from '../atoms/NbosSummaryNumeric';
-import { formatCurrency } from '../../utilities/utilities.js';
+import { formatCurrency, formatPercent } from '../../utilities/utilities.js';
 
 export const NbosSummary2 = ({ summary2 }) => (
   <NbosSurface>
@@ -16,12 +16,14 @@ export const NbosSummary2 = ({ summary2 }) => (
       </div>
       <div className="tw-text-left tw-grid-rows-2 tw-border-l-2">
         <div className="tw-grid tw-grid-rows-2">
-          <NbosSummaryNumeric summaryNumeric={`${summary2.avgRaroc}%`} />
+          <NbosSummaryNumeric
+            summaryNumeric={`${formatPercent(summary2.avgRaroc)}`}
+          />
           <NbosSummarySubtextLeft subTextLabel="TTM Avg RAR0C" />
         </div>
       </div>
       <div className="tw-text-left tw-grid-rows-2 tw-border-l-2">
-        <NbosSummaryNumeric summaryNumeric={`${summary2.fee}%`} />
+        <NbosSummaryNumeric summaryNumeric={`${formatPercent(summary2.fee)}`} />
         <NbosSummarySubtextLeft subTextLabel="Fee Equivalent + Card % of Loan Commit" />
       </div>
     </div>

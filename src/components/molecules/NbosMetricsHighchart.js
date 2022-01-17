@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import './metrics.css';
+// import { formatCurrency } from '../../utilities/utilities.js';
 
 export const NbosMetricsHighchart = ({ chartData, chartType }) => {
   const highChartOptions = {
