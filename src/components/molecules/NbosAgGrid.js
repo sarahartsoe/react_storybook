@@ -3,6 +3,7 @@ import { AgGridColumn, AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 // import { format } from 'date-fns';
+import { formatCurrency } from '../../utilities/utilities.js';
 
 export const NbosAgGrid = ({ opportunitiesDetail }) => {
   // const dateClosed = new Date('2021-01-26T08:53:59Z');
@@ -12,13 +13,18 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
     domLayout: 'autoHeight',
   };
 
+  const defaultColDef = {
+    resizable: true,
+    flex: 1,
+  };
+
   return (
     <div
       className="ag-theme-material"
       style={{ height: 300, width: '100%' }}
       gridOptions={gridOptions}
     >
-      <AgGridReact rowData={opportunitiesDetail}>
+      <AgGridReact rowData={opportunitiesDetail} defaultColDef={defaultColDef}>
         <AgGridColumn
           headerName="Relationship"
           sortable={true}
@@ -43,6 +49,9 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           sort="desc"
           sortable={true}
           style={{ width: '99.9%' }}
+          valueFormatter={params => {
+            return formatCurrency(params.value.toString());
+          }}
         ></AgGridColumn>
         <AgGridColumn
           headerName="Date Closed"
