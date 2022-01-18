@@ -20,9 +20,12 @@ export const formatCurrency = a => {
 // format percentages in the following way: x.yyy %
 
 export const formatPercent = a => {
+  if (a === '' || a === undefined) {
+    return '';
+  }
   const percentArray = a.split('.');
-  const leftSide = percentArray[0].substring(0, 1);
-  const rightSide = percentArray[1].substring(0, 2);
   console.log(percentArray);
-  return `${leftSide}.${rightSide}%`;
+  // const leftSide = percentArray[0].substring(0, 1);
+  const rightSide = percentArray[1].substring(0, 2);
+  return `${percentArray[0]}.${rightSide}%`;
 };

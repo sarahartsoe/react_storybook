@@ -2,13 +2,16 @@ import React from 'react';
 import { AgGridColumn, AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
-// import { format } from 'date-fns';
+import { format } from 'date-fns';
 import { formatCurrency } from '../../utilities/utilities.js';
 import './metrics.css';
 
 export const NbosAgGrid = ({ opportunitiesDetail }) => {
-  // const dateClosed = new Date('2021-01-26T08:53:59Z');
-  // const formattedDate = format(dateClosed, 'YYYY/MM/DD');
+  const formatter = a => {
+    const date =
+      a.value !== undefined ? format(new Date(a.value), 'yyyy/MM/dd') : '';
+    return date;
+  };
 
   const gridOptions = {
     domLayout: 'autoHeight',
@@ -18,6 +21,14 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
     resizable: true,
     flex: 1,
     type: 'leftAligned',
+    alignItems: 'left',
+    justifyContent: 'left',
+  };
+
+  const cellStyle = {
+    justifyContent: 'left',
+    alignItems: 'left',
+    textAlign: 'left',
   };
 
   return (
@@ -33,6 +44,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           sortable={true}
           field="client_name"
           style={{ width: '99.9%' }}
+          cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
           className="tw-place-content-start tw-text-left rowAlign"
@@ -40,6 +52,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           sortable={true}
           field="product_type"
           style={{ width: '99.9%', align: 'left' }}
+          cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
           className="tw-place-content-start tw-text-left rowAlign"
@@ -47,6 +60,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           sortable={true}
           field="sales_stage"
           style={{ width: '99.9%' }}
+          cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
           className="tw-place-content-start tw-text-left rowAlign"
@@ -58,6 +72,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           valueFormatter={params => {
             return formatCurrency(params.value.toString());
           }}
+          cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
           className="tw-place-content-start tw-text-left rowAlign"
@@ -65,6 +80,8 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           sortable={true}
           field="date_closed"
           style={{ width: '99.9%' }}
+          valueFormatter={formatter}
+          cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
           className="tw-place-content-start tw-text-left rowAlign"
@@ -72,6 +89,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           sortable={true}
           field="details"
           style={{ width: '99.9%' }}
+          cellStyle={cellStyle}
         ></AgGridColumn>
       </AgGridReact>
     </div>
