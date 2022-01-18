@@ -4,7 +4,6 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import { format } from 'date-fns';
 import { formatCurrency } from '../../utilities/utilities.js';
-import './metrics.css';
 
 export const NbosAgGrid = ({ opportunitiesDetail }) => {
   const formatter = a => {
@@ -21,13 +20,9 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
     resizable: true,
     flex: 1,
     type: 'leftAligned',
-    alignItems: 'left',
-    justifyContent: 'left',
   };
 
   const cellStyle = {
-    justifyContent: 'left',
-    alignItems: 'left',
     textAlign: 'left',
   };
 
