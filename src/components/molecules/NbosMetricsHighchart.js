@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import './metrics.css';
-// import { formatCurrency } from '../../utilities/utilities.js';
+import { chartFormatter } from '../../utilities/utilities.js';
 
 export const NbosMetricsHighchart = ({ chartData, chartType }) => {
   const highChartOptions = {
@@ -22,6 +22,16 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
       bar: {
         dataLabels: {
           enabled: true,
+          formatter: function () {
+            const hundredThousand = this.y * 10000;
+            if (hundredThousand > 1000 && hundredThousand < 1000000) {
+              return `$` + this.y + `K`;
+            } else if (this.y > 1000000) {
+              return `$` + this.y + `MM`;
+            } else if (this.y < 100) {
+              return this.y;
+            }
+          },
         },
       },
       series: {
@@ -47,14 +57,15 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
       },
       categories:
         chartType === 'behavior'
-          ? ['Loan Production', 'Deposit Growth', 'TM Growth', 'New Clients']
-          : [
+          ? [
               'Avg Overall RM Satisfaction',
               'Client Calls',
               'Prospect Calls',
               'Strategies Updated',
-            ],
+            ]
+          : ['Loan Production', 'Deposit Growth', 'TM Growth', 'New Clients'],
     },
+
     yAxis: {
       lineWidth: 0,
       minorGridLineWidth: 0,
@@ -83,13 +94,13 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
     const xAxis = {
       categories:
         chartType === 'behavior'
-          ? ['Loan Production', 'Deposit Growth', 'TM Growth', 'New Clients']
-          : [
+          ? [
               'Avg Overall RM Satisfaction',
               'Client Calls',
               'Prospect Calls',
               'Strategies Updated',
-            ],
+            ]
+          : ['Loan Production', 'Deposit Growth', 'TM Growth', 'New Clients'],
     };
     const series = [
       {
@@ -98,19 +109,23 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
         data:
           chartType === 'outcome'
             ? [
-                parseFloat(chartData.loanProdY1),
-                parseFloat(chartData.DepGrowthY1),
-                parseFloat(chartData.TmGrowthY1),
-                parseFloat(chartData.newClientsY1),
+                parseFloat(chartFormatter(chartData.loanProdY1)),
+                parseFloat(chartFormatter(chartData.DepGrowthY1)),
+                parseFloat(chartFormatter(chartData.TmGrowthY1)),
+                {
+                  y: parseFloat(chartData.newClientsY1),
+                  color: `${
+                    chartData.newClientsY1 > 2 ? '#0166CC' : '#D43F2D'
+                  }`,
+                },
               ]
             : [
-                parseFloat(chartData.satisfactionY1),
+                parseFloat(chartFormatter(chartData.satisfactionY1)),
                 parseFloat(chartData.clientCallsY1),
                 {
                   y: parseFloat(chartData.prospectCallsY1),
-
                   color: `${
-                    chartData.prospectCallsY1 > 5 ? '#808080' : '#FF0000'
+                    chartData.prospectCallsY1 > 5 ? '#0166CC' : '#D43F2D'
                   }`,
                 },
                 parseFloat(chartData.strategiesY1),
@@ -122,21 +137,15 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
         data:
           chartType === 'outcome'
             ? [
-                parseFloat(chartData.loanProdY2),
-                parseFloat(chartData.DepGrowthY2),
-                parseFloat(chartData.TmGrowthY2),
+                parseFloat(chartFormatter(chartData.loanProdY2)),
+                parseFloat(chartFormatter(chartData.DepGrowthY2)),
+                parseFloat(chartFormatter(chartData.TmGrowthY2)),
                 parseFloat(chartData.newClientsY2),
               ]
             : [
-                parseFloat(chartData.satisfactionY2),
+                parseFloat(chartFormatter(chartData.satisfactionY2)),
                 parseFloat(chartData.clientCallsY2),
-                {
-                  y: parseFloat(chartData.prospectCallsY2),
-
-                  color: `${
-                    chartData.prospectCallsY2 > 5 ? '#808080' : '#FF0000'
-                  }`,
-                },
+                parseFloat(chartData.prospectCallsY2),
                 parseFloat(chartData.strategiesY2),
               ],
       },

@@ -4,6 +4,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import { format } from 'date-fns';
 import { formatCurrency } from '../../utilities/utilities.js';
+import './metrics.css';
 
 export const NbosAgGrid = ({ opportunitiesDetail }) => {
   const formatter = a => {
@@ -20,6 +21,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
     resizable: true,
     flex: 1,
     type: 'leftAligned',
+    headerClass: 'header-black',
   };
 
   const cellStyle = {
@@ -29,12 +31,17 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
   return (
     <div
       className="ag-theme-material"
-      style={{ height: 300, width: '100%' }}
+      style={{ height: 363, width: '100%' }}
       gridOptions={gridOptions}
     >
-      <AgGridReact rowData={opportunitiesDetail} defaultColDef={defaultColDef}>
+      <AgGridReact
+        pagination={true}
+        paginationAutoPageSize={true}
+        rowData={opportunitiesDetail}
+        defaultColDef={defaultColDef}
+        rowHeight={50}
+      >
         <AgGridColumn
-          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Relationship"
           sortable={true}
           field="client_name"
@@ -42,7 +49,6 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
-          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Product Type"
           sortable={true}
           field="product_type"
@@ -50,7 +56,6 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
-          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Sales Stage"
           sortable={true}
           field="sales_stage"
@@ -58,7 +63,6 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
-          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Revenue"
           field="revenue"
           sort="desc"
@@ -70,7 +74,6 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
-          className="tw-place-content-start tw-text-left rowAlign"
           headerName="Date Closed"
           sortable={true}
           field="date_closed"
@@ -79,11 +82,10 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
           cellStyle={cellStyle}
         ></AgGridColumn>
         <AgGridColumn
-          className="tw-place-content-start tw-text-left rowAlign"
           headerName=""
           sortable={true}
           field="details"
-          style={{ width: '99.9%' }}
+          style={{ width: '99.9%', color: 'blue' }}
           cellStyle={cellStyle}
         ></AgGridColumn>
       </AgGridReact>

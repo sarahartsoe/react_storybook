@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NbosPipelineCard } from '../organisms/NbosPipelineCard';
 import { NbosPipelineGridCard } from '../organisms/NbosPipelineGridCard';
 import { NbosSurface } from '../atoms/NbosSurface';
+import { NbosClientInfoMainText } from '../atoms/NbosClientInfoMainText';
 
 export default function NbosPipelineGrid({
   opportunitySummary,
@@ -18,6 +19,11 @@ export default function NbosPipelineGrid({
   console.log(newArrayTop5);
   return (
     <div className="">
+      <NbosSurface>
+        <div className="tw-p-3 tw-border-b-2 tw-border-b-gray-700">
+          <NbosClientInfoMainText mainTextLabel="Pipeline" />
+        </div>
+      </NbosSurface>
       <NbosPipelineCard opportunitySummary={opportunitySummary} />
       <NbosPipelineGridCard
         opportunitiesDetail={
@@ -27,7 +33,7 @@ export default function NbosPipelineGrid({
         show5={show5}
       />
       <NbosSurface>
-        <button onClick={onClick} className="tw-text-blue-600 tw-p-1 tw-pb-2">
+        <button onClick={onClick} className="tw-text-blue-600 tw-pb-2">
           {show5 ? 'View Full Pipeline' : 'View Top 5'}
         </button>
       </NbosSurface>

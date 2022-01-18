@@ -18,6 +18,7 @@ export const opportunitiesDetailSlice = createSlice({
   extraReducers: {
     [fetchOpportunitiesDetail.fulfilled]: (state, { payload }) => {
       state.opportunities = payload;
+      state.opportunities = payload.map(v => ({ ...v, details: 'Details' }));
     },
   },
 });

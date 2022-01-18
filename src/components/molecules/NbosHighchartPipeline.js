@@ -30,7 +30,11 @@ export const NbosHighchartPipeline = ({ opportunitySummary }) => {
     yAxis: {
       title: {
         text: 'Revenue',
+        style: {
+          color: 'black',
+        },
       },
+      tickAmount: 4,
       labels: {
         enabled: false,
       },
@@ -63,14 +67,3 @@ export const NbosHighchartPipeline = ({ opportunitySummary }) => {
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
 };
-
-// stageOne2020: '',
-// stageTwo2020: '',
-// stageThree2020: '',
-// stageFour2020: '',
-// booked2020: '',
-// stageOne2021: '',
-// stageTwo2021: '',
-// stageThree2021: '',
-// stageFour2021: '',
-// booked2021: '',
