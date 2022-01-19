@@ -23,6 +23,14 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
         dataLabels: {
           enabled: true,
           formatter: function () {
+            if (
+              this.key === 'Client Calls' ||
+              this.key === 'Prospect Calls' ||
+              this.key === 'Strategies Updated' ||
+              this.key === 'New Clients'
+            ) {
+              return this.y;
+            }
             const hundredThousand = this.y * 10000;
             if (hundredThousand > 1000 && hundredThousand < 1000000) {
               return `$` + this.y + `K`;

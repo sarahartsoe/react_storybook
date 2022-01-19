@@ -34,9 +34,17 @@ export const NbosHighchartPipeline = ({ opportunitySummary }) => {
           color: 'black',
         },
       },
+      floor: 0,
+      ceiling: 600000,
       tickAmount: 4,
       labels: {
-        enabled: false,
+        enabled: true,
+      },
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0,
+        borderWidth: 0,
       },
     },
     series: [

@@ -31,7 +31,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
   return (
     <div
       className="ag-theme-material"
-      style={{ height: 363, width: '100%' }}
+      style={{ height: 378, width: '100%' }}
       gridOptions={gridOptions}
     >
       <AgGridReact

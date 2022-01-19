@@ -3,8 +3,8 @@ import './home/style.css';
 import { Layout } from 'antd';
 import { NbosHeader } from '../atoms/NbosHeader.js';
 import { NbosSideNav } from '../atoms/NbosSideNav.js';
-import { NbosSummaryLeft } from '../templates/NbosSummaryLeft.js';
-import { NbosSummaryRight } from '../templates/NbosSummaryRight.js';
+import { NbosSummary } from '../templates/NbosSummary.js';
+// import { NbosSummaryRight } from '../templates/NbosSummaryRight.js';
 import { NbosMetricsCard } from '../organisms/NbosMetricsCard';
 import NbosPipelineGrid from '../templates/NbosPipelineGrid.js';
 import { useSelector, useDispatch, Provider } from 'react-redux';
@@ -78,7 +78,7 @@ export const NbosDashboard = () => {
               <NbosSideNav />
             </Sider>
             <Content
-              className="site-layout-background tw-m-8"
+              className="site-layout-background tw-m-8 tw-gap-4"
               style={{
                 padding: 24,
                 margin: 64,
@@ -86,20 +86,16 @@ export const NbosDashboard = () => {
                 backgroundColor: '#F9F9F9',
               }}
             >
-              <div className="tw-grid tw-grid-cols-3 tw-gap-4">
-                <div className="tw-grid tw-grid-cols-3 tw-grid-rows-3 tw-col-span-3 tw-grid-flow-col tw-gap-3">
-                  <div className="tw-row-span-3 tw-col-span-1">
-                    <NbosSummaryLeft userInfo={userInfo} />
-                  </div>
-                  <div className="tw-row-span-3 tw-col-span-2">
-                    <NbosSummaryRight
-                      clientInfo={clientInfo}
-                      summary1={summary1}
-                      summary2={summary2}
-                    />
-                  </div>
+              <div className="tw-grid tw-grid-rows-{n} tw-grid-flow-row tw-gap-4">
+                <div className="">
+                  <NbosSummary
+                    userInfo={userInfo}
+                    clientInfo={clientInfo}
+                    summary1={summary1}
+                    summary2={summary2}
+                  />
                 </div>
-                <div className="tw-col-span-3">
+                <div className="">
                   <NbosMetricsCard
                     userInfo={userInfo}
                     chartData={
@@ -111,7 +107,7 @@ export const NbosDashboard = () => {
                     onChange={handleChangeToggle}
                   />
                 </div>
-                <div className="tw-col-span-3">
+                <div className="">
                   <NbosPipelineGrid
                     opportunitySummary={opportunitySummary}
                     opportunitiesDetail={opportunitiesDetail}
