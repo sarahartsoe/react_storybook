@@ -36,7 +36,7 @@ export const NbosAgGrid = ({ opportunitiesDetail }) => {
     >
       <AgGridReact
         pagination={true}
-        paginationAutoPageSize={true}
+        paginationPageSize={25}
         rowData={opportunitiesDetail}
         defaultColDef={defaultColDef}
         rowHeight={50}

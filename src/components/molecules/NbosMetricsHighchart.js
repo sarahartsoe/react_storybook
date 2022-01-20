@@ -27,17 +27,18 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
               this.key === 'Client Calls' ||
               this.key === 'Prospect Calls' ||
               this.key === 'Strategies Updated' ||
-              this.key === 'New Clients'
+              this.key === 'New Clients' ||
+              this.key === 'Avg Overall RM Satisfaction'
             ) {
               return this.y;
             }
-            const hundredThousand = this.y * 10000;
-            if (hundredThousand > 1000 && hundredThousand < 1000000) {
+            const hundredThousand = this.y * 1000;
+            if (this.y < 100) {
+              return this.y + '';
+            } else if (hundredThousand > 10000 && hundredThousand < 1000000) {
               return `$` + this.y + `K`;
             } else if (this.y > 1000000) {
               return `$` + this.y + `MM`;
-            } else if (this.y < 100) {
-              return this.y;
             }
           },
         },
@@ -63,6 +64,11 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
           },
         },
       },
+      labels: {
+        style: {
+          color: 'black',
+        },
+      },
       categories:
         chartType === 'behavior'
           ? [
@@ -86,6 +92,10 @@ export const NbosMetricsHighchart = ({ chartData, chartType }) => {
       },
       labels: {
         enabled: false,
+        style: {
+          width: '100px',
+          'min-width': '100px',
+        },
       },
       plotOptions: {
         bar: {

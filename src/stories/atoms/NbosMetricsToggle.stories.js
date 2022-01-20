@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NbosMetricsToggle } from '../../components/atoms/NbosMetricsToggle';
+import NbosMetricsToggle from '../../components/atoms/NbosMetricsToggle';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

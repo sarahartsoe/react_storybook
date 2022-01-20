@@ -8,7 +8,7 @@ export default function NbosMetricsToggle({ changeHandler }) {
       label: 'Outcome Metrics',
       value: 'outcome',
       selectedBackgroundColor: '#ffffff',
-      innerHeight: 50,
+      innerHeight: 80,
       selectedFontColor: '#0166CC',
     },
     {
@@ -16,6 +16,7 @@ export default function NbosMetricsToggle({ changeHandler }) {
       value: 'behavior',
       selectedBackgroundColor: '#ffffff',
       selectedFontColor: '#0166CC',
+      innerHeight: 80,
     },
   ];
 
@@ -29,7 +30,10 @@ export default function NbosMetricsToggle({ changeHandler }) {
   );
 
   return (
-    <div className="toggle">
+    <div
+      className="toggle tw-h-[3rem]"
+      style={{ height: '40px', width: '500px' }}
+    >
       <SwitchSelector
         onChange={handleToggleSwitch}
         options={options}

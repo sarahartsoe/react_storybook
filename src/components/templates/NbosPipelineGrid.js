@@ -24,7 +24,7 @@ export default function NbosPipelineGrid({
           <NbosClientInfoMainText mainTextLabel="Pipeline" />
         </div>
       </NbosSurface>
-      <NbosPipelineCard opportunitySummary={opportunitySummary} />
+      <NbosPipelineCard opportunitySummary={opportunitySummary} show5={show5} />
       <NbosPipelineGridCard
         opportunitiesDetail={
           show5 ? newArrayTop5 : opportunitiesDetail.opportunities
